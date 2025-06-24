@@ -1,10 +1,10 @@
  -- 1.  Выведите Ваш возраст на текущий день в секундах 
 SELECT 
-DATEDIFF(NOW(), '1986-11-24 00:00:00') * 24 * (60 ^ 2) AS MyAge_sec;
+DATEDIFF(CURDATE(), '1986-11-24') * 24 * (60 ^ 2) AS MyAge_sec;
 
 -- 2. Выведите какая дата будет через 51 день
 SELECT 
-    DATE_ADD(DATE_FORMAT(NOW(), '%Y-%m-%d'),
+    DATE_ADD(CURDATE(),
         INTERVAL 51 DAY) AS date_in_51days;
 
 -- 3. Отформатируйте предыдущей запрос - выведите день недели для этой даты Используйте документацию My SQL
@@ -30,7 +30,7 @@ FROM orders;
 
 --            2й вариант: 
 SELECT
-CONCAT("Клиент с id ", CAST(customer_id AS CHAR(2)), " сделал заказ ", order_date) AS result
+CONCAT("Клиент с id ", CAST(customer_id AS CHAR), " сделал заказ ", order_date) AS result
 FROM orders;
 
 -- Запрос написать двумя способами - с использованием неявных преобразований 
